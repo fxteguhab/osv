@@ -1254,6 +1254,7 @@ class expression(object):
                 #possible fix doesn't contain ?
                 if (need_wildcard and not right) or (right and operator in NEGATIVE_TERM_OPERATORS):
                     query = '(%s OR %s."%s" IS NULL)' % (query, table_alias, left)
+                #-----------------------------
 
             elif left in MAGIC_COLUMNS:
                     query = "(%s.\"%s\"%s %s %%s)" % (table_alias, left, cast, sql_operator)
